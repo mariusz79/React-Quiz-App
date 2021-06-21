@@ -25,7 +25,14 @@ module.exports = {
 			{
 				test: /\.css$/,
 				use: ["style-loader", "css-loader"],
-			},
+			},{
+			
+				test: /\.(png|jpg|gif|svg)$/,
+				loader: 'file-loader',
+				options: {
+				name: '[name].[ext]?[hash]'
+        }
+      },
 		],
 	},
 	plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
